@@ -1,6 +1,5 @@
 import Transaction from "../models/schema.js";
 
-
 const getPieChartData = async (req, res) => {
   const { month } = req.query;
   const monthNumber = new Date(`2023-${month}-01`).getMonth() + 1;

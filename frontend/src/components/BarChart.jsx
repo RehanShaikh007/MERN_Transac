@@ -1,13 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Bar } from "react-chartjs-2";
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const BarChart = ({ month }) => {
-    const [data, setData] = useState([]);
-    
+  const [data, setData] = useState([]);
+
   useEffect(() => {
     fetchBarChartData();
   }, [month]);
@@ -25,19 +40,21 @@ const BarChart = ({ month }) => {
       {
         label: "Number of Items",
         data: data.map((d) => d.count),
-        backgroundColor: "rgba(75, 192, 192, 0.6)",
+        backgroundColor: "rgb(148, 55, 60)",
       },
     ],
   };
 
   return (
-    <div className="mt-4">
-    <h2 className="text-xl font-bold">Bar Chart</h2>
-    <div className="mt-2">
-      <Bar data={chartData} />
+    <div className="mt-15">
+      <h2 className="text-2xl font-bold uppercase bg-gradient-to-t to-red-900 p-2 text-center text-white">
+        Bar Chart
+      </h2>
+      <div className="mt-8">
+        <Bar data={chartData} />
+      </div>
     </div>
-  </div>
-  )
-}
+  );
+};
 
-export default BarChart
+export default BarChart;
