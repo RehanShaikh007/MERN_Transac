@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
-const Stats = () => {
+const Stats = ({ month }) => {
     const [stats, setStats] = useState({});
     
   useEffect(() => {

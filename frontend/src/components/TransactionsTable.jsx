@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const TransactionsTable = () => {
+const TransactionsTable = ({ month }) => {
     const [transactions, setTransactions] = useState([]);
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
