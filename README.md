@@ -73,7 +73,7 @@ MONGO_URI=mongodb://localhost:27017/transaction-dashboard
 ``` bash
 npm start
 ```
-The backend will run on http://localhost:5000.
+The backend will run on http://localhost:4000.
 
 ### **3. Frontend Setup**
 **1. Navigate to the frontend folder:**
