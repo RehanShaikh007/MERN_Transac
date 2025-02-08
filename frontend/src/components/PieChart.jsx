@@ -39,7 +39,7 @@ const PieChart = ({ month }) => {
   return (
     <div className="mt-15">
       <h2 className="text-2xl font-bold uppercase p-2 bg-gradient-to-t to-red-900 text-center text-white">
-        Pie Chart
+        Pie Chart - {month}
       </h2>
       <div className="mt-8">
         <Pie data={chartData} />

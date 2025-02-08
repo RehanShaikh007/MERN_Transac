@@ -17,7 +17,7 @@ const Stats = ({ month }) => {
   return (
     <div className="mt-15">
       <h2 className="text-2xl font-bold uppercase text-center bg-gradient-to-t to-red-900 p-2 text-white">
-        Statistics
+        Statistics - {month}
       </h2>
       <div className="flex gap-4 mt-8 items-center justify-center">
         <div className="p-4 rounded-2xl text-white font-semibold bg-red-900 hover:scale-105">

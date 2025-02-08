@@ -4,13 +4,23 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import transactionRoutes from "./routes/transactionRoutes.js";
 import fetchData from "./utils/fetchData.js";
+import path from 'path';
+
 
 dotenv.config();
 
 const app = express();
 
+const __dirname = path.resolve();
+
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:5173"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Authorization", "Content-Type"],
+  })
+);
 
 mongoose
   .connect(process.env.MONGO_URI)
@@ -24,6 +34,14 @@ mongoose
 fetchData();
 
 app.use("/api", transactionRoutes);
+
+app.use(express.static(path.join(__dirname, '/frontend/dist')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
+})
+
+
 
 const port = process.env.PORT;
 

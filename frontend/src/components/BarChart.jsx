@@ -40,7 +40,7 @@ const BarChart = ({ month }) => {
       {
         label: "Number of Items",
         data: data.map((d) => d.count),
-        backgroundColor: "rgb(148, 55, 60)",
+        backgroundColor: "rgb(103, 186, 255)",
       },
     ],
   };
@@ -48,7 +48,7 @@ const BarChart = ({ month }) => {
   return (
     <div className="mt-15">
       <h2 className="text-2xl font-bold uppercase bg-gradient-to-t to-red-900 p-2 text-center text-white">
-        Bar Chart
+        Bar Chart - {month}
       </h2>
       <div className="mt-8">
         <Bar data={chartData} />

@@ -26,11 +26,11 @@ const TransactionsTable = ({ month }) => {
         placeholder="Search transactions"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="p-2 bg-red-900 text-white font-semibold rounded-2xl text-center w-full md:w-1/2 lg:w-1/3 mx-auto block"
+        className="p-2 bg-red-900 text-white font-semibold rounded-2xl text-center w-full md:w-1/2 lg:w-1/3 mx-auto block mb-4"
       />
 
-      <div className="mt-2 overflow-x-auto">
-        <table className="w-full border-collapse border-4 border-red-900 bg-white">
+      <div className="mt-2 overflow-x-auto shadow-lg rounded-lg">
+        <table className="w-full min-w-[600px] border-collapse border-4 border-red-900 bg-white">
           <thead>
             <tr className="border-2 bg-red-900">
               <th className="border p-2 text-white">ID</th>
@@ -44,7 +44,10 @@ const TransactionsTable = ({ month }) => {
           </thead>
           <tbody>
             {transactions.map((t) => (
-              <tr key={t.id} className="border-2 border-red-900">
+              <tr
+                key={t.id}
+                className="border-2 border-red-900 hover:bg-gray-100 transition-colors"
+              >
                 <td className="border p-2 text-red-900">{t.id}</td>
                 <td className="border p-2 text-red-900">{t.title}</td>
                 <td className="border p-2 text-red-900">{t.description}</td>
@@ -61,7 +64,7 @@ const TransactionsTable = ({ month }) => {
                   <img
                     src={t.image}
                     alt={t.title}
-                    className="w-16 h-16 object-cover"
+                    className="w-16 h-16 object-cover rounded"
                   />
                 </td>
               </tr>
@@ -70,11 +73,11 @@ const TransactionsTable = ({ month }) => {
         </table>
       </div>
 
-      <div className="mt-2 flex justify-center items-center w-full">
+      <div className="mt-4 flex justify-center items-center w-full">
         <button
           onClick={() => setPage(page - 1)}
           disabled={page === 1}
-          className="p-2 bg-red-900 cursor-pointer text-white rounded font-medium mx-1"
+          className="p-2 bg-red-900 cursor-pointer text-white rounded font-medium mx-1 hover:bg-red-800 transition-colors"
         >
           Previous
         </button>
@@ -84,7 +87,7 @@ const TransactionsTable = ({ month }) => {
         <button
           onClick={() => setPage(page + 1)}
           disabled={page === Math.ceil(total / 10)}
-          className="p-2 bg-red-900 cursor-pointer text-white rounded font-medium mx-1"
+          className="p-2 bg-red-900 cursor-pointer text-white rounded font-medium mx-1 hover:bg-red-800 transition-colors"
         >
           Next
         </button>
